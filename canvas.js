@@ -54,6 +54,8 @@ function Circle(x, y, dx, dy, radius) {
     c.fill();
   }
   
+  //create update key to store function that controls circle logic
+  //This function contains conditionals that will prevent circles from exiting the browser window.
   this.update = function() {
     if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
       this.dx = -this.dx;
@@ -82,14 +84,12 @@ function Circle(x, y, dx, dy, radius) {
   }
 }
 
+//Create array to hold circle objects
 var circleArr = [];
 
 
-
-//////////////////////////////////////////////
-//Create Rectangle to be used as header text//
-//////////////////////////////////////////////
-
+//Create function to initialize circles, randomizing their locations and 
+//velocities and pushing them to the circle array
 function init(){
     circleArr = [];
     for (var i = 0; i < 1000; i++){
@@ -107,6 +107,7 @@ function init(){
 
 };
 
+//Create function to animate circles and call the update function in the Circle object
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, innerWidth, innerHeight);
@@ -116,14 +117,9 @@ function animate() {
   }
 };
 
+//Call functions to initialize circles and animate them
 init();
 animate();
 
 
-
-
-
-
-
-console.log("test");
 
